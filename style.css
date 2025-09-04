@@ -277,6 +277,19 @@
   letter-spacing: 0;
   line-height: 1.2px;
 }
+.wireframe .hello {
+  position: absolute;
+  width: 890px;
+  height: 71px;
+  top: 230px;
+  left: 0;
+  font-family: "Indie Flower", Helvetica;
+  font-weight: 400;
+  color: #b7416a;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 1.2px;
+}
 
 .wireframe .text-wrapper-6 {
   position: absolute;

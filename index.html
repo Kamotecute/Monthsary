@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+      <audio id="bg-mp3" autoplay loop>
+    <source src="MS1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+    
     <div class="wireframe" data-model-id="2:3">
       <div class="div">
         <div class="overlap">
-          <div class="text-wrapper">Our 23rd Monthsary💕</div>
-          <p class="p">Memories and love to Jerich from Isabelle</p>
+          <div class="text-wrapper">Our 42nd Monthsary💕</div>
+          <p class="p">Memories and love from yours truly hehehe</p>
         </div>
         <div class="overlap-group">
-          <img class="element" src="https://c.animaapp.com/JTKaTPMX/img/7-1@2x.png" />
-          <img class="img" src="https://c.animaapp.com/JTKaTPMX/img/5-1@2x.png" />
-          <img class="element-2" src="https://c.animaapp.com/JTKaTPMX/img/6-1@2x.png" />
-          <img class="element-3" src="https://c.animaapp.com/JTKaTPMX/img/4-1@2x.png" />
-          <img class="element-4" src="https://c.animaapp.com/JTKaTPMX/img/3-1@2x.png" />
-          <img class="element-5" src="https://c.animaapp.com/JTKaTPMX/img/2-1@2x.png" />
-          <img class="element-6" src="https://c.animaapp.com/JTKaTPMX/img/1-1@2x.png" />
+          <img class="element" src="pc1.jpg" />
+          <img class="img" src="pc7.jpg" />
+          <img class="element-2" src="pc2.jpg" />
+          <img class="element-3" src="pc3.jpg" />
+          <img class="element-4" src="pc4.jpg" />
+          <img class="element-5" src="pc5.jpg" />
+          <img class="element-6" src="pc6.jpg" />
         </div>
         <div class="overlap-group-2">
           <div class="text-wrapper-2">To my dearest Jerich,</div>
@@ -37,30 +43,19 @@
       </div>
     </div>
 
-    <!-- Background Music -->
-    <audio id="bgm" loop>
-      <source src="Palagi Piano Cover.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Music Icon Button -->
-    <button class="music-icon" id="musicToggle">
-      <img src="music-icon.png" alt="Music Icon" id="musicIcon">
-    </button>
-
     <script>
-      const audio = document.getElementById('bgm');
-      const musicToggle = document.getElementById('musicToggle');
-      const musicIcon = document.getElementById('musicIcon');
+    // Ensures audio can play even with browser restrictions
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bg-mp3");
+      audio.volume = 0.5; // set volume (0.0 - 1.0)
       
-      musicToggle.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play(); // Play the audio
-          musicIcon.src = 'music-icon.png'; // Change to playing icon
-        } else {
-          audio.pause(); // Pause the audio
-          musicIcon.src = 'muted-icon.png'; // Change to paused icon
-        }
+      // Try to play audio (some browsers require user interaction first)
+      audio.play().catch(() => {
+        console.log("Autoplay blocked. Waiting for user interaction...");
+        document.body.addEventListener("click", () => audio.play(), { once: true });
       });
-    </script>
+    });
+  </script>
+    
   </body>
 </html>
